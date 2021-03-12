@@ -7,12 +7,13 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.alitv.mvvmtrainning.R
 import com.alitv.mvvmtrainning.viewmodel.LoginViewModel
+import com.alitv.mvvmtrainning.viewmodel.RegisterViewModel
 import kotlinx.android.synthetic.main.activity_register.*
 
 class RegisterActivity : AppCompatActivity() {
 
-    private val registerViewModel:LoginViewModel by lazy{
-        ViewModelProviders.of(this).get(LoginViewModel::class.java)
+    private val registerViewModel:RegisterViewModel by lazy{
+        ViewModelProviders.of(this).get(RegisterViewModel::class.java)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,7 +33,7 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun setObserver() {
-        registerViewModel.getLoginResponseModel().observe(this, Observer{
+        registerViewModel.getRegisterResponseModel().observe(this, Observer{
             if (it != null){
                 Toast.makeText(this, "User Name "+it.userModel.userName, Toast.LENGTH_SHORT).show()
             }
